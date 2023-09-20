@@ -1,0 +1,15 @@
+input[type="text"]:focus {
+  outline: none !important;
+  border: none;
+}
+input {
+  outline: none !important;
+  border: none;
+  /* color: black; */
+  font-size: var(--mediumFont);
+}
+.input__SearchButton {
+  font-size: var(--smallFont);
+  color: blue;
+  font-weight: bold;
+}

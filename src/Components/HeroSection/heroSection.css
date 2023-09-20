@@ -1,0 +1,111 @@
+.heroSection__parent {
+  margin-right: 2vw;
+  padding-left: 4vw;
+  /* padding-right: 8vw; */
+  min-height: calc(100vh - 12vh);
+}
+.heroSection__topBar {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin-left: 4vw;
+}
+.heroSection__topBar_left {
+  flex: 1.2;
+}
+.heroSection__topBar__text {
+  font-size: var(--smallestFont);
+  font-weight: bold;
+}
+.heroSection__topBar__right {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  margin-right: 2vw;
+}
+.heroSection__topBar__circule {
+  width: 2vw;
+  height: 2vw;
+  min-width: 30px;
+  min-height: 30px;
+  background-color: blue;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.heroSection__topBar__priceText {
+  display: flex;
+  color: black;
+  font-size: var(--smallFont);
+  align-items: center;
+  margin-left: 1vw;
+}
+.heroSection__buttonAdd {
+  background-color: transparent;
+  width: 7rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.heroSection__topBar__account {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  color: black;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: var(--smallestFont);
+  margin-left: 1vw;
+}
+.heroSection__ArrowIcons {
+  font-size: var(--largeFont);
+  font-weight: 100;
+}
+.heroSection__topBar_leftMenuMargin {
+  display: none;
+  margin-left: 5vw;
+}
+.heroSection__subTitle {
+  display: flex;
+  flex-direction: row;
+  padding: 2vh 0vh 2vh 0vh;
+}
+.heroSection__title {
+  display: flex;
+  flex-direction: row;
+  padding: 10vh 0vh 10vh 0vh;
+  font-size: var(--largeFont);
+  font-weight: 600;
+}
+@media screen and (max-width: 760px) {
+  /* nav */
+  .heroSection__topBar {
+    display: none;
+  }
+  .heroSection__topBar_leftMenuMargin {
+    display: inline;
+    margin-left: 8vw;
+    height: 100%;
+  }
+  /* heroSection */
+
+  .heroSection__parent {
+    margin-top: 15rem;
+    padding-left: 0px;
+  }
+  .heroSection__subTitle {
+    display: flex;
+    flex-direction: row;
+    /* padding: 2vh 0vh 2vh 0vh; */
+    font-size: var(--smallFont);
+  }
+  .heroSection__title {
+    display: flex;
+    flex-direction: row;
+    padding: 2vh 0vh 2vh 0vh;
+    font-size: var(--mediumFont);
+  }
+}

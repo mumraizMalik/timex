@@ -1,0 +1,59 @@
+.expandedMenu_parent {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 80vw;
+  background-color: white;
+  z-index: 2;
+  translate: 80vw;
+  transition-timing-function: linear;
+  transition-duration: 0.5s;
+  height: 100vh;
+  /* overflow-y: hidden;  */
+}
+.expandedMenu__topIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.expandedMenu__pageSpaces {
+  margin-top: 6vh;
+  margin-right: 5rem;
+}
+.expandedMenu__mainSection {
+  display: flex;
+  flex-direction: row;
+  margin-right: 5rem;
+}
+.expandedMenu__item {
+  font-size: var(--mediumFont);
+  font-weight: bold;
+  margin: 0px;
+}
+
+.expandedMenu__categoryTitle {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+.expandedMenu__categoryTitleButton {
+  font-size: var(--smallFont);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.expandedMenu__subCategory {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.expandedMenu__subItem {
+  margin-bottom: 0.4rem;
+}
+.expandedMenu__bottomSection {
+  display: flex;
+}

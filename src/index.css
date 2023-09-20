@@ -1,13 +1,110 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --smallestFont: 0.7rem;
+  --smallFont: 1rem;
+  --mediumFont: 2rem;
+  --largeFont: 3rem;
+  --largestFont: 4rem;
+  --font-family1: "Hind", sans-serif;
+  --font-family2: "Roboto", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0px;
+  background-color: #ecebf0;
+  font-family: "Hind", sans-serif;
+  font-size: var(--smallFont);
+  max-width: 100vw;
+  /* font-family: "Roboto", sans-serif; */
+}
+
+.tp-6vh {
+  padding-top: 6vh !important;
+}
+.tp-5vh {
+  padding-top: 5vh !important;
+}
+.pt-15vh {
+  padding-top: 15vh;
+}
+.pb-5vh {
+  padding-bottom: 5vh;
+}
+.pb-5vh {
+  padding-bottom: 5vh;
+}
+.py-5vh {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+.py-20vh {
+  padding-top: 20vh;
+  padding-bottom: 20vh;
+}
+.py-10vh {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+.py-15vh {
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+}
+.mr-1vw {
+  margin-right: 1vw;
+}
+.mb-1vh {
+  margin-bottom: 1vh;
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.blue {
+  color: blue;
+}
+.black {
+  color: black;
+}
+.gray {
+  color: gray;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+}
+.flex1 {
+  flex: 1;
+}
+.flex1_2 {
+  flex: 1.2;
+}
+.flex1_5 {
+  flex: 1.5;
+}
+.flex2 {
+  flex: 2;
+}
+.flexEnd {
+  justify-content: flex-end;
+}
+.spaceBetween {
+  justify-content: space-between;
+}
+.heading1 {
+  font-size: var(--largeFont);
+  font-weight: 600;
+}
+.bold1 {
+  font-weight: 600;
+}
+.button:active {
+  opacity: 50%;
+}
+.button {
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
 }

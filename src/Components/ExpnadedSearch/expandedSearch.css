@@ -1,0 +1,36 @@
+.expandedSearch_parent {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 80vw;
+  background-color: white;
+  z-index: 2;
+  translate: 80vw;
+  transition-timing-function: linear;
+  transition-duration: 0.5s;
+}
+.expandedSearch__topIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+.expandedSearch__pageSpaces {
+  margin-top: 6vh;
+  margin-right: 5rem;
+}
+.expandedSearch__searchResultContainer {
+  margin-top: 2rem;
+  position: relative;
+  width: 100%;
+}
+.expandedSearch__searchResult {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.expandedSearch__result {
+  margin-top: 2rem;
+  display: flex;
+}
