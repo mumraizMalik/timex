@@ -5,9 +5,11 @@ const InputText = ({
   inputStyle,
   buttonExist = true,
   onInput,
+  ...otherProps
 }) => {
   return (
     <div
+      {...otherProps}
       style={{
         display: "flex",
         // border: "0px solid black",

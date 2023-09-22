@@ -1,8 +1,14 @@
 import React from "react";
 
-const Button = ({ buttonContainerStyle, buttonStyle, buttonText, onClick }) => {
+const Button = ({
+  buttonContainerStyle,
+  buttonStyle,
+  buttonText,
+  onClick,
+  ...otherProps
+}) => {
   return (
-    <div style={{ ...buttonContainerStyle }}>
+    <div {...otherProps} style={{ ...buttonContainerStyle }}>
       <button
         onClick={onClick}
         type="button"

@@ -1,18 +1,21 @@
 import React from "react";
 import HomePage from "./Screens/HomePage/HomePage";
-
+import { store } from "../src/app/Store";
+import { Provider } from "react-redux";
 const App = () => {
   console.log("update");
   return (
-    <div
-      style={
-        {
-          // transition: "backgroundColor 0.5 linear",
+    <Provider store={store}>
+      <div
+        style={
+          {
+            // transition: "backgroundColor 0.5 linear",
+          }
         }
-      }
-    >
-      <HomePage />
-    </div>
+      >
+        <HomePage />
+      </div>
+    </Provider>
   );
 };
 

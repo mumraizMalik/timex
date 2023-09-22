@@ -10,7 +10,7 @@
 
 body {
   margin: 0px;
-  background-color: #ecebf0;
+  /* background-color: #ecebf0; */
   font-family: "Hind", sans-serif;
   font-size: var(--smallFont);
   max-width: 100vw;

@@ -10,12 +10,17 @@ import BannerPage from "../../Components/BannerPage/BannerPage";
 import PopularWatches from "../../Components/PopularWatches/PopularWatches";
 import ExpandedMenu from "../../Components/ExpandedMenu/ExpandedMenu";
 import ExpnadedSearch from "../../Components/ExpnadedSearch/ExpandedSearch";
+import Filter from "../../Components/Filter/Filter";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { updateBgColor } from "../../features/BackgroundColor";
 const HomePage = () => {
+  const bgColor = useSelector((state) => state.bgColor);
   const heroSectionRef = useRef(null);
   const exploreRef = useRef(null);
   const NewCollectionRef = useRef(null);
-
-  let updatedColor = "";
+  const dispatch = useDispatch();
+  console.log("GBCOlor", bgColor);
   const moveToHeroSection = () => {
     heroSectionRef.current?.scrollIntoView();
   };
@@ -26,20 +31,33 @@ const HomePage = () => {
     NewCollectionRef.current?.scrollIntoView();
   };
   const [isExpanded, setIsExpanded] = useState("");
+  const color1 = "#ECEBF0";
+  const color2 = "#ffff";
   const expandMenu = () => {
-    console.log(isExpanded);
-    if (isExpanded) setIsExpanded("");
-    else setIsExpanded("expandedMenu");
+    setIsExpanded("expandedMenu");
+    dispatch(updateBgColor(color2));
   };
   const expandSearch = () => {
-    if (isExpanded) setIsExpanded("");
-    else setIsExpanded("expandedSearch");
+    setIsExpanded("expandedSearch");
+    dispatch(updateBgColor(color2));
   };
-
+  const closeExpanded = () => {
+    setIsExpanded("");
+    dispatch(updateBgColor(color1));
+  };
   return (
     <div className="homepage__position">
       {/* AbsoluteImage */}
-      <div className="homepage__absoluteContainer">
+      <div
+        style={{
+          backgroundColor: bgColor,
+          transition: "all 0.5s linear",
+          WebkitTransition: "all .5s linear",
+          MozTransition: "all .5s linear",
+          transitionDelay: "0.5s",
+        }}
+        className="homepage__absoluteContainer"
+      >
         <div className="homepage__absoluteInnerContainer">
           <img
             src={Images.image1}
@@ -48,8 +66,8 @@ const HomePage = () => {
         </div>
       </div>
       {/* AbsoluteExpandedMenu */}
-      <ExpnadedSearch isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
-      <ExpandedMenu isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+      <ExpnadedSearch isExpanded={isExpanded} closeExpanded={closeExpanded} />
+      <ExpandedMenu isExpanded={isExpanded} closeExpanded={closeExpanded} />
 
       <div className="homepage__sidebar ">
         <Sidebar expandMenu={expandMenu} isExpanded={isExpanded} />
@@ -75,6 +93,7 @@ const HomePage = () => {
         <NewCollection str={""} ref={NewCollectionRef} />
         <BannerPage />
         <PopularWatches />
+        <Filter />
       </div>
     </div>
   );

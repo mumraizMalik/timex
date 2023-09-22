@@ -3,8 +3,7 @@ import "./expandedMenu.css";
 import { RxCross1 } from "react-icons/rx";
 import { watchesData } from "../../Services/watchMenuData";
 import BannerPage from "../BannerPage/BannerPage";
-const ExpandedMenu = ({ isExpanded, setIsExpanded }) => {
-  console.log("MenuPAGE", isExpanded);
+const ExpandedMenu = ({ isExpanded, closeExpanded }) => {
   const [selectedItem, setSelectedItem] = useState(0);
   return (
     <div
@@ -15,11 +14,7 @@ const ExpandedMenu = ({ isExpanded, setIsExpanded }) => {
     >
       <div className="expandedMenu__pageSpaces">
         <div className="expandedMenu__topIcon">
-          <button
-            onClick={() => setIsExpanded("")}
-            className="button"
-            type="button"
-          >
+          <button onClick={closeExpanded} className="button" type="button">
             <RxCross1 size={20} />
           </button>
         </div>

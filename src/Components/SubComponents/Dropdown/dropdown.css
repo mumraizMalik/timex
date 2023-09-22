@@ -1,0 +1,26 @@
+.dropdown__itemContainer {
+  position: absolute;
+  width: 20vw;
+  max-height: 40vh;
+  top: 2.5rem;
+  right: 0;
+  border-radius: 1vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-color: lightgray;
+  padding: 1rem;
+  z-index: 4;
+}
+.dropdown__itemContainer::-webkit-scrollbar {
+  display: none;
+}
+.dropDown__button {
+  border-radius: 1rem;
+  padding: 0.2rem;
+}
+.dropDown__button:hover {
+  background-color: gainsboro;
+}

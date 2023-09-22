@@ -8,7 +8,6 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaFacebookF, FaPinterestP } from "react-icons/fa";
 const Sidebar = ({ expandMenu, isExpanded }) => {
-  console.log("SideBarPage", isExpanded);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuItems = () => {
     const items = ["Mens", "womens", "kids", "Sale"];
