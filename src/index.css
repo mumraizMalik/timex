@@ -14,6 +14,7 @@ body {
   font-family: "Hind", sans-serif;
   font-size: var(--smallFont);
   max-width: 100vw;
+  /* overflow: hidden; */
   /* font-family: "Roboto", sans-serif; */
 }
 

@@ -20,7 +20,7 @@
 }
 .homepage__sidebar {
   flex: 1;
-  position: relative;
+  /* position: relative; */
 }
 .homepage__position {
   display: flex;

@@ -11,6 +11,7 @@ import PopularWatches from "../../Components/PopularWatches/PopularWatches";
 import ExpandedMenu from "../../Components/ExpandedMenu/ExpandedMenu";
 import ExpnadedSearch from "../../Components/ExpnadedSearch/ExpandedSearch";
 import Filter from "../../Components/Filter/Filter";
+import ProductDetail from "../../Components/ProductDetail/ProductDetail";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateBgColor } from "../../features/BackgroundColor";
@@ -36,66 +37,83 @@ const HomePage = () => {
   const expandMenu = () => {
     setIsExpanded("expandedMenu");
     dispatch(updateBgColor(color2));
+    hideScrollbar();
   };
   const expandSearch = () => {
     setIsExpanded("expandedSearch");
     dispatch(updateBgColor(color2));
+    hideScrollbar();
   };
   const closeExpanded = () => {
     setIsExpanded("");
     dispatch(updateBgColor(color1));
+    displayScrollbar();
   };
-  return (
-    <div className="homepage__position">
-      {/* AbsoluteImage */}
-      <div
-        style={{
-          backgroundColor: bgColor,
-          transition: "all 0.5s linear",
-          WebkitTransition: "all .5s linear",
-          MozTransition: "all .5s linear",
-          transitionDelay: "0.5s",
-        }}
-        className="homepage__absoluteContainer"
-      >
-        <div className="homepage__absoluteInnerContainer">
-          <img
-            src={Images.image1}
-            style={{ width: "50%", height: "50%", objectFit: "contain" }}
-          />
-        </div>
-      </div>
-      {/* AbsoluteExpandedMenu */}
-      <ExpnadedSearch isExpanded={isExpanded} closeExpanded={closeExpanded} />
-      <ExpandedMenu isExpanded={isExpanded} closeExpanded={closeExpanded} />
+  const displayScrollbar = () => {
+    document.body.style.overflow = "auto";
+    document.body.style.paddingRight = "0px";
+  };
+  const hideScrollbar = () => {
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+  };
 
-      <div className="homepage__sidebar ">
-        <Sidebar expandMenu={expandMenu} isExpanded={isExpanded} />
-      </div>
-      <div style={{ flex: 4, position: "relative" }}>
+  return (
+    <>
+      <div className="homepage__position">
+        {/* AbsoluteImage */}
         <div
           style={{
-            position: "fixed",
-            minWidth: "80%",
-            height: "12vh",
+            backgroundColor: bgColor,
+            transition: "all 0.5s linear",
+            WebkitTransition: "all .5s linear",
+            MozTransition: "all .5s linear",
+            transitionDelay: "0.5s",
           }}
+          className="homepage__absoluteContainer"
         >
-          <Navbar expandSearch={expandSearch} />
+          <div className="homepage__absoluteInnerContainer">
+            <img
+              src={Images.image1}
+              style={{ width: "50%", height: "50%", objectFit: "contain" }}
+            />
+          </div>
         </div>
+        {/* AbsoluteExpandedMenu */}
 
-        <div style={{ marginTop: "12vh" }}></div>
-        <HeroSection
-          str={""}
-          ref={heroSectionRef}
-          onClick={moveToExploreSection}
-        />
-        <Explore str={""} ref={exploreRef} />
-        <NewCollection str={""} ref={NewCollectionRef} />
-        <BannerPage />
-        <PopularWatches />
-        <Filter />
+        <div className="homepage__sidebar">
+          <Sidebar expandMenu={expandMenu} isExpanded={isExpanded} />
+        </div>
+        <div style={{ flex: 4 }}>
+          <div
+            style={{
+              position: "fixed",
+              minWidth: "80%",
+              height: "12vh",
+            }}
+          >
+            <Navbar expandSearch={expandSearch} />
+          </div>
+
+          <div style={{ marginTop: "12vh" }}></div>
+          <HeroSection
+            str={""}
+            ref={heroSectionRef}
+            onClick={moveToExploreSection}
+          />
+          <Explore str={""} ref={exploreRef} />
+          <NewCollection str={""} ref={NewCollectionRef} />
+          <BannerPage />
+          <PopularWatches />
+          <Filter />
+          <ProductDetail />
+        </div>
       </div>
-    </div>
+      <ExpnadedSearch isExpanded={isExpanded} closeExpanded={closeExpanded} />
+      <ExpandedMenu isExpanded={isExpanded} closeExpanded={closeExpanded} />
+    </>
   );
 };
 

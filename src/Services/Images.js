@@ -29,6 +29,16 @@ const image14 =
   "https://cdn.discordapp.com/attachments/1131547046323695666/1151154253713379358/image.png";
 const image15 =
   "https://cdn.discordapp.com/attachments/1131547046323695666/1151154253226852544/image14.png";
+const image16 =
+  "https://cdn.discordapp.com/attachments/1131547046323695666/1155041806984171600/2.jpg";
+const image17 =
+  "https://cdn.discordapp.com/attachments/1131547046323695666/1155041807583952906/4.jpg";
+const image18 =
+  "https://cdn.discordapp.com/attachments/1131547046323695666/1155041807961428089/3.jpg";
+const image19 =
+  "https://cdn.discordapp.com/attachments/1131547046323695666/1155041808343126107/1.jpg";
+const image20 =
+  "https://cdn.discordapp.com/attachments/1131547046323695666/1155041851586396191/5.jpg";
 
 export const Images = {
   image1,
@@ -46,4 +56,9 @@ export const Images = {
   image13,
   image14,
   image15,
+  image16,
+  image17,
+  image18,
+  image19,
+  image20,
 };
