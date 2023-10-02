@@ -3,7 +3,7 @@ import "./newCollection.css";
 import image from "../../Images/threeWatches.png";
 import MapProducts from "../GeneraicComponents/MapProducts";
 import { collectionNames } from "../../Services/data";
-const NewCollection = ({ str }, ref) => {
+const NewCollection = ({ str, onProductClick }, ref) => {
   const [activeColorId, setActiveColorId] = useState(0);
   return (
     <>
@@ -63,7 +63,10 @@ const NewCollection = ({ str }, ref) => {
           </div>
         </div>
         <div className="newCollection__ByCategory">
-          <MapProducts data={collectionNames[activeColorId]} />
+          <MapProducts
+            data={collectionNames[activeColorId]}
+            onClick={onProductClick}
+          />
         </div>
       </div>
     </>

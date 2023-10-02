@@ -1,4 +1,4 @@
-const MapProducts = ({ data }) => {
+const MapProducts = ({ data, onClick }) => {
   const getRandomNumber = () => {
     return Math.floor(Math.random() * 100);
   };
@@ -19,6 +19,7 @@ const MapProducts = ({ data }) => {
           }}
         >{`${getRandomNumber()} $`}</h4>
         <button
+          onClick={onClick}
           style={{
             fontWeight: "bold",
             color: "blue",

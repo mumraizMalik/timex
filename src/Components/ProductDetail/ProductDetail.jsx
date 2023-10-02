@@ -4,6 +4,7 @@ import Text from "../../Components/SubComponents/Text/Text";
 import Button from "../SubComponents/Button/Button";
 import ReactStars from "react-rating-stars-component";
 import { Images } from "../../Services/Images";
+import PageScroll, { NestedPageScroll } from "react-page-scroll";
 const ProductDetail = () => {
   //inFuture it will come from APi there will be always 6 images
   const productOtehrImages = [
@@ -112,7 +113,7 @@ const ProductDetail = () => {
       </div>
       {/* ProductDescriptionDetails */}
 
-      <div className="productDetail__descriptionDetailsContainer">
+      {/* <div className="productDetail__descriptionDetailsContainer">
         <div className="productDetail__overflowTwoPages">
           <div className="productDetail__descriptionDetails">
             <Text style={{ display: "block", fontSize: "1.5rem" }}>
@@ -128,7 +129,7 @@ const ProductDetail = () => {
         </div>
         <div style={{ flex: 1 }}>
           {/* fixedRightSideBar */}
-
+      {/* 
           <div
             style={{
               backgroundColor: "red",
@@ -137,7 +138,7 @@ const ProductDetail = () => {
             a
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

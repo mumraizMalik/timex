@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import HeroSection from "../../Components/HeroSection/HeroSection";
 import Navbar from "../../Components/HeroSection/Navbar";
@@ -15,13 +15,15 @@ import ProductDetail from "../../Components/ProductDetail/ProductDetail";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateBgColor } from "../../features/BackgroundColor";
+
+import PageScroll, { NestedPageScroll } from "react-page-scroll";
 const HomePage = () => {
   const bgColor = useSelector((state) => state.bgColor);
   const heroSectionRef = useRef(null);
   const exploreRef = useRef(null);
   const NewCollectionRef = useRef(null);
   const dispatch = useDispatch();
-  console.log("GBCOlor", bgColor);
+
   const moveToHeroSection = () => {
     heroSectionRef.current?.scrollIntoView();
   };
@@ -31,7 +33,12 @@ const HomePage = () => {
   const moveToCollection = () => {
     NewCollectionRef.current?.scrollIntoView();
   };
+
   const [isExpanded, setIsExpanded] = useState("");
+  const [onSelectingProduct, setOnSelectingProduct] = useState({
+    show: false,
+    id: null,
+  });
   const color1 = "#ECEBF0";
   const color2 = "#ffff";
   const expandMenu = () => {
@@ -59,28 +66,33 @@ const HomePage = () => {
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = `${scrollbarWidth}px`;
   };
-
+  const onProductClick = ({ id }) => {
+    //At the moment no id is null as we dont have data of product
+    setOnSelectingProduct({ show: true, id: 0 });
+  };
   return (
     <>
       <div className="homepage__position">
         {/* AbsoluteImage */}
-        <div
-          style={{
-            backgroundColor: bgColor,
-            transition: "all 0.5s linear",
-            WebkitTransition: "all .5s linear",
-            MozTransition: "all .5s linear",
-            transitionDelay: "0.5s",
-          }}
-          className="homepage__absoluteContainer"
-        >
-          <div className="homepage__absoluteInnerContainer">
-            <img
-              src={Images.image1}
-              style={{ width: "50%", height: "50%", objectFit: "contain" }}
-            />
+        {!onSelectingProduct.show && (
+          <div
+            style={{
+              backgroundColor: bgColor,
+              transition: "all 0.5s linear",
+              WebkitTransition: "all .5s linear",
+              MozTransition: "all .5s linear",
+              transitionDelay: "0.5s",
+            }}
+            className="homepage__absoluteContainer"
+          >
+            <div className="homepage__absoluteInnerContainer">
+              <img
+                src={Images.image1}
+                style={{ width: "50%", height: "50%", objectFit: "contain" }}
+              />
+            </div>
           </div>
-        </div>
+        )}
         {/* AbsoluteExpandedMenu */}
 
         <div className="homepage__sidebar">
@@ -96,19 +108,39 @@ const HomePage = () => {
           >
             <Navbar expandSearch={expandSearch} />
           </div>
-
+          {/* <PageScroll
+            onScrollEnd={() => console.log("Ended")}
+            onScrollCommandCede={() => console.log("Connded")}
+            width="80vw"
+            height="100vh"
+            
+          > */}
           <div style={{ marginTop: "12vh" }}></div>
-          <HeroSection
-            str={""}
-            ref={heroSectionRef}
-            onClick={moveToExploreSection}
-          />
-          <Explore str={""} ref={exploreRef} />
-          <NewCollection str={""} ref={NewCollectionRef} />
-          <BannerPage />
-          <PopularWatches />
-          <Filter />
-          <ProductDetail />
+          {!onSelectingProduct.show ? (
+            <>
+              <HeroSection
+                str={""}
+                ref={heroSectionRef}
+                onClick={moveToExploreSection}
+              />
+
+              <Explore
+                str={""}
+                ref={exploreRef}
+                onProductClick={onProductClick}
+              />
+              <NewCollection
+                str={""}
+                ref={NewCollectionRef}
+                onProductClick={onProductClick}
+              />
+              <BannerPage />
+              <PopularWatches />
+              <Filter onProductClick={onProductClick} />
+            </>
+          ) : (
+            <ProductDetail />
+          )}
         </div>
       </div>
       <ExpnadedSearch isExpanded={isExpanded} closeExpanded={closeExpanded} />
